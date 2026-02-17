@@ -15,7 +15,7 @@
             --ios-blue: #0A84FF;
             --gold: #FFC107;
             --white: #ffffff;
-            --bubble-bg: rgba(255, 255, 255, 0.1);
+            --text-gray: #A0AEC0;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -40,16 +40,16 @@
             background: var(--navy-card); border-radius: 18px; padding: 15px 20px;
             display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.1);
         }
-        .search-box input { background: none; border: none; color: white; width: 100%; outline: none; }
+        .search-box input { background: none; border: none; color: white; width: 100%; outline: none; font-size: 14px; }
         .search-box i { color: var(--ios-blue); }
 
         /* --- Service Cards --- */
-        .services-bar { display: flex; justify-content: space-between; padding: 20px; gap: 10px; }
+        .services-bar { display: flex; justify-content: space-between; padding: 25px 20px 10px; gap: 10px; }
         .service-card { flex: 1; background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 12px 5px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
         .service-card i { font-size: 18px; color: var(--gold); margin-bottom: 5px; display: block; }
         .service-card span { font-size: 10px; font-weight: 700; display: block; }
 
-        /* --- Info Jadwal (Step-by-Step Fade) --- */
+        /* --- Info Jadwal (Sequence Animation - Ganti-gantian) --- */
         .fade-grid { display: flex; gap: 10px; padding: 0 20px; }
         .fade-card { 
             flex: 1; height: 130px; border-radius: 20px; overflow: hidden; position: relative;
@@ -58,28 +58,27 @@
         .card-left { background-image: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=400&q=80'); }
         .card-right { background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80'); }
         
-        .overlay-blue { position: absolute; inset: 0; background: rgba(0, 26, 51, 0.75); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .overlay-blue { position: absolute; inset: 0; background: rgba(0, 26, 51, 0.8); display: flex; align-items: center; justify-content: center; text-align: center; }
         
-        /* Animasi Per Kata */
-        .step-fade { opacity: 0; animation: wordFade 6s infinite; }
-        .po-name { font-weight: 800; font-size: 13px; color: var(--white); animation-delay: 0s; }
-        .po-route { font-weight: 600; font-size: 11px; color: var(--gold); animation-delay: 1s; margin: 4px 0; }
-        .po-time { font-weight: 800; font-size: 14px; color: var(--white); animation-delay: 2s; }
+        /* Keyframe untuk muncul bergantian tanpa tabrakan */
+        .sequence-text { position: absolute; opacity: 0; animation: sequenceFade 9s infinite; width: 90%; }
+        .po-name { font-weight: 800; font-size: 14px; animation-delay: 0s; }
+        .po-route { font-weight: 700; font-size: 16px; color: var(--gold); animation-delay: 3s; }
+        .po-time { font-weight: 800; font-size: 18px; animation-delay: 6s; }
 
-        @keyframes wordFade {
-            0% { opacity: 0; transform: translateY(5px); }
-            15%, 85% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-5px); }
+        @keyframes sequenceFade {
+            0%, 2% { opacity: 0; transform: scale(0.9); }
+            10%, 28% { opacity: 1; transform: scale(1); }
+            33%, 100% { opacity: 0; transform: scale(1.1); }
         }
 
-        /* --- Seamless Logo Slider --- */
+        /* --- Logo Slider Seamless --- */
         .marquee { margin: 25px 0; overflow: hidden; white-space: nowrap; background: rgba(255,255,255,0.02); padding: 12px 0; }
-        .marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
-        .marquee-content span { font-size: 13px; font-weight: 800; margin: 0 25px; color: var(--text-gray); opacity: 0.5; }
-
+        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
+        .marquee-content span { font-size: 13px; font-weight: 800; margin: 0 30px; color: var(--text-gray); opacity: 0.4; }
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* --- 4 Grid Card --- */
+        /* --- 4 Card Grid (Background Bus) --- */
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
         .grid-card { 
             height: 160px; border-radius: 22px; position: relative; overflow: hidden;
@@ -87,13 +86,14 @@
             background-size: cover; border: 1px solid rgba(255,255,255,0.1);
         }
         .grid-overlay { 
-            position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,26,51,0.5), rgba(10,132,255,0.85));
+            position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,26,51,0.4), rgba(10,132,255,0.85));
             padding: 15px; display: flex; flex-direction: column; justify-content: space-between;
         }
-        .wa-btn { background: var(--white); color: var(--ios-blue); border: none; padding: 10px; border-radius: 12px; font-weight: 800; font-size: 10px; }
+        .grid-overlay b { font-size: 14px; }
+        .wa-btn { background: var(--white); color: var(--ios-blue); border: none; padding: 10px; border-radius: 12px; font-weight: 800; font-size: 10px; cursor: pointer; }
 
-        /* --- Testimonial Chat Bubble Style --- */
-        .testi-container { padding: 20px; position: relative; height: 180px; }
+        /* --- Testimonial Chat Bubble --- */
+        .testi-section { padding: 20px; position: relative; height: 180px; }
         .testi-group { 
             position: absolute; width: 100%; left: 0; padding: 0 20px; 
             opacity: 0; animation: testiFade 10s infinite; 
@@ -102,30 +102,29 @@
         .testi-group:nth-child(2) { animation-delay: 5s; }
 
         .chat-bubble {
-            background: var(--navy-card); padding: 15px 20px; border-radius: 20px;
-            position: relative; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1);
-            font-size: 12px; font-style: italic; line-height: 1.5; text-align: center;
+            background: var(--navy-card); padding: 15px 20px; border-radius: 22px;
+            position: relative; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px; line-height: 1.5; text-align: center; color: #E2E8F0;
         }
-        /* Segitiga Bubble */
         .chat-bubble::after {
             content: ''; position: absolute; bottom: -10px; left: 50%;
             transform: translateX(-50%); border-left: 10px solid transparent;
             border-right: 10px solid transparent; border-top: 10px solid var(--navy-card);
         }
 
-        .user-info { display: flex; flex-direction: column; align-items: center; }
-        .testi-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--ios-blue); margin-bottom: 8px; }
-        .testi-name { font-size: 11px; font-weight: 800; color: var(--gold); }
+        .user-meta { display: flex; flex-direction: column; align-items: center; }
+        .testi-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--ios-blue); margin-bottom: 8px; object-fit: cover; }
+        .testi-name { font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 1px; }
 
         @keyframes testiFade {
-            0%, 5% { opacity: 0; transform: scale(0.95); }
-            15%, 45% { opacity: 1; transform: scale(1); }
-            55%, 100% { opacity: 0; transform: scale(0.95); }
+            0%, 5% { opacity: 0; transform: translateY(10px); }
+            15%, 45% { opacity: 1; transform: translateY(0); }
+            55%, 100% { opacity: 0; transform: translateY(-10px); }
         }
 
         .section-header { padding: 25px 25px 10px; font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- Bottom Nav --- */
+        /* --- Nav Bawah --- */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 480px;
             background: rgba(0, 26, 51, 0.98); backdrop-filter: blur(20px);
@@ -138,13 +137,13 @@
 
 <div class="container">
     <div class="hero-header">
-        <h1 style="letter-spacing: 2px; font-size: 22px;">MAHIKA <span style="color:var(--gold)">TRANS</span></h1>
+        <h1 style="letter-spacing: 3px; font-size: 22px;">MAHIKA <span style="color:var(--gold)">TRANS</span></h1>
     </div>
 
     <div class="search-wrapper">
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cari rute atau armada...">
+            <input type="text" placeholder="Cari rute bus...">
         </div>
     </div>
 
@@ -155,20 +154,20 @@
         <div class="service-card"><i class="fas fa-plane"></i><span>Pesawat</span></div>
     </div>
 
-    <div class="section-header">JADWAL TERPOPULER</div>
+    <div class="section-header">INFO JADWAL</div>
     <div class="fade-grid">
         <div class="fade-card card-left">
             <div class="overlay-blue">
-                <div class="step-fade po-name">MURNI JAYA</div>
-                <div class="step-fade po-route">BOGOR</div>
-                <div class="step-fade po-time">17:30 WIB</div>
+                <div class="sequence-text po-name">MURNI JAYA</div>
+                <div class="sequence-text po-route">BOGOR</div>
+                <div class="sequence-text po-time">17:30 WIB</div>
             </div>
         </div>
         <div class="fade-card card-right">
             <div class="overlay-blue">
-                <div class="step-fade po-name">AGRA MAS</div>
-                <div class="step-fade po-route">BOGOR</div>
-                <div class="step-fade po-time">17:30 WIB</div>
+                <div class="sequence-text po-name">AGRA MAS</div>
+                <div class="sequence-text po-route">BOGOR</div>
+                <div class="sequence-text po-time">17:30 WIB</div>
             </div>
         </div>
     </div>
@@ -180,7 +179,7 @@
         </div>
     </div>
 
-    <div class="section-header">PILIHAN ARMADA</div>
+    <div class="section-header">ARMADA TERSEDIA</div>
     <div class="grid-container">
         <div class="grid-card">
             <div class="grid-overlay">
@@ -208,26 +207,26 @@
         </div>
     </div>
 
-    <div class="section-header">KATA PENUMPANG</div>
-    <div class="testi-container">
+    <div class="section-header">TESTIMONI</div>
+    <div class="testi-section">
         <div class="testi-group">
-            <div class="chat-bubble">"Pelayanan cepat, tiket langsung dapet tanpa ribet. Adminnya fast respon!"</div>
-            <div class="user-info">
-                <img src="https://i.pravatar.cc/100?u=11" class="testi-img">
+            <div class="chat-bubble">"Tiket langsung dapet tanpa ribet. Adminnya fast respon banget!"</div>
+            <div class="user-meta">
+                <img src="https://i.pravatar.cc/100?u=12" class="testi-img">
                 <div class="testi-name">RAHMAN SHOAN</div>
             </div>
         </div>
         <div class="testi-group">
-            <div class="chat-bubble">"Armadanya selalu oke, agen paling amanah di Dongkelan. Recomended!"</div>
-            <div class="user-info">
-                <img src="https://i.pravatar.cc/100?u=22" class="testi-img">
+            <div class="chat-bubble">"Agen paling amanah di Dongkelan. Recomended buat pemudik!"</div>
+            <div class="user-meta">
+                <img src="https://i.pravatar.cc/100?u=25" class="testi-img">
                 <div class="testi-name">ANDI PRATAMA</div>
             </div>
         </div>
     </div>
 
     <nav class="bottom-nav">
-        <div class="nav-item" style="color:var(--gold);"><i class="fas fa-home" style="font-size:22px;"></i></div>
+        <div class="nav-item" style="color:var(--gold);"><i class="fas fa-house" style="font-size:22px;"></i></div>
         <div class="nav-item" style="color:#4A5568;"><i class="fas fa-ticket-alt" style="font-size:22px;"></i></div>
         <div class="nav-item" style="color:#4A5568;"><i class="fas fa-history" style="font-size:22px;"></i></div>
         <div class="nav-item" style="color:#4A5568;"><i class="fas fa-user" style="font-size:22px;"></i></div>
@@ -235,4 +234,5 @@
 </div>
 
 </body>
-</html>
+    </html>
+                    
