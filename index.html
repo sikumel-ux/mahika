@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAHIKA Trans - Official Partner</title>
+    <title>MOYA SaaS - Premium Ticketing</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -11,226 +11,234 @@
 
     <style>
         :root {
-            --navy-bg: #003358;       /* Navy Gelap ala Mahika */
-            --gold: #FFC107;          /* Gold / Kuning Emas */
-            --sky-blue: #40C4FF;      /* Biru Akses ala Mahika */
-            --card-glass: rgba(255, 255, 255, 0.05);
+            --navy-deep: #002B4D;     /* Navy Gelap SaaS */
+            --gold: #FFC107;          /* Aksen Emas Mewah */
+            --sky-blue: #00B4EC;      /* Tombol & Link */
+            --bg-dark: #001F35;       /* Background Body */
+            --card-dark: #003358;     /* Warna Kartu */
             --white: #ffffff;
         }
 
         * { box-sizing: border-box; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--navy-bg);
+            background-color: #000;
             margin: 0;
             display: flex;
             justify-content: center;
-            color: var(--white);
         }
 
         .container { 
             width: 100%;
             max-width: 480px; 
+            background: var(--bg-dark); 
             min-height: 100vh; 
             position: relative;
-            background: linear-gradient(180deg, #003358 0%, #001f35 100%);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
             overflow-x: hidden;
-            padding-bottom: 100px;
+            color: var(--white);
         }
 
-        /* --- Header Branding --- */
+        /* --- Header SaaS Style --- */
         .header {
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-        .header h1 { 
-            margin: 0; 
-            font-size: 28px; 
-            letter-spacing: 1px;
-            font-weight: 800;
-        }
-        .header h1 span { color: var(--gold); }
-        .header p { 
-            font-size: 10px; 
-            letter-spacing: 3px; 
-            margin-top: 5px; 
-            opacity: 0.7;
-            text-transform: uppercase;
-        }
-
-        /* --- Promo Bar --- */
-        .promo-bar {
-            background: rgba(0,0,0,0.2);
-            padding: 10px;
-            text-align: center;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        /* --- Search Bar Ala Mahika --- */
-        .search-box {
-            margin: 0 20px 30px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50px;
-            padding: 5px 5px 5px 20px;
+            padding: 25px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: var(--navy-deep);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .search-box input {
-            background: none; border: none; color: white; outline: none; width: 100%;
-        }
-        .btn-cari {
-            background: var(--sky-blue);
-            color: black;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 12px;
-            text-transform: uppercase;
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .logo-circle {
+            width: 42px; height: 42px; background: var(--gold);
+            border-radius: 14px; display: flex; align-items: center; 
+            justify-content: center; color: var(--navy-deep); font-size: 20px;
         }
 
-        /* --- Welcome Card --- */
-        .welcome-card {
-            margin: 0 20px 30px;
-            background: var(--card-glass);
-            border-radius: 30px;
-            padding: 30px 20px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+        /* --- Swiper Banner SaaS --- */
+        .mySwiper { width: 100%; padding: 20px 0 35px; }
+        .swiper-slide { padding: 0 20px; }
+        .banner-card {
+            width: 100%; height: 160px; border-radius: 25px;
+            background: linear-gradient(135deg, var(--navy-deep) 0%, #004d80 100%);
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 25px; color: white; position: relative; overflow: hidden;
+            border: 1px solid rgba(255,193,7,0.2);
         }
-        .welcome-card h2 { font-size: 22px; margin: 0 0 10px; }
-        .welcome-card p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
+        .banner-card::before {
+            content: ''; position: absolute; top: -20px; right: -20px;
+            width: 80px; height: 80px; background: var(--gold); opacity: 0.1; border-radius: 50%;
+        }
 
-        /* --- Bus Ticket List --- */
-        .section-title { padding: 0 25px; font-size: 13px; color: var(--gold); font-weight: 800; margin-bottom: 15px; }
-        
-        .ticket-list { padding: 0 20px; }
+        /* --- Section Styling --- */
+        .section-title { 
+            padding: 0 20px; font-size: 13px; font-weight: 800; 
+            margin-top: 20px; color: var(--gold);
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        /* --- Company Profile Grid (SaaS Style) --- */
+        .profile-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px 20px;
+        }
+        .profile-item {
+            padding: 20px; background: var(--card-dark); border-radius: 22px; 
+            text-align: center; border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .profile-item i { font-size: 24px; color: var(--sky-blue); margin-bottom: 10px; display: block; }
+        .profile-item span { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.8); }
+
+        /* --- Ticket List SaaS --- */
+        .ticket-list { padding: 10px 20px 20px; }
         .bus-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 15px;
+            background: var(--card-dark); border-radius: 28px; padding: 22px; margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-        .bus-name { color: var(--gold); font-weight: 800; font-size: 16px; margin-bottom: 5px; }
-        .route-row { display: flex; align-items: center; gap: 15px; margin: 15px 0; }
-        .dot { width: 8px; height: 8px; background: var(--sky-blue); border-radius: 50%; }
-        .line { flex: 1; height: 1px; background: rgba(255,255,255,0.2); }
-        
+        .operator-name { font-weight: 800; font-size: 18px; margin: 0; color: var(--gold); }
+        .bus-badge {
+            font-size: 10px; background: rgba(0,180,236,0.1); color: var(--sky-blue);
+            padding: 5px 12px; border-radius: 12px; font-weight: 800;
+        }
+        .route-info { display: flex; align-items: center; gap: 15px; margin: 20px 0; }
+        .line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); position: relative; }
+        .line i { position: absolute; top: -7px; left: 45%; color: var(--sky-blue); font-size: 12px; }
+
         .price-row { 
             display: flex; justify-content: space-between; align-items: center; 
-            margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.05); padding-top: 18px; 
         }
-        .btn-booking {
-            background: none; border: 1px solid var(--gold); color: var(--gold);
-            padding: 8px 15px; border-radius: 12px; font-weight: 600; cursor: pointer;
-        }
-
-        /* --- Partner Swiper --- */
-        .partner-logo img { 
-            max-width: 80px; filter: brightness(0) invert(1); opacity: 0.5; 
+        .btn-order {
+            background: var(--sky-blue); color: var(--navy-deep); border: none; padding: 12px 25px;
+            border-radius: 16px; font-weight: 800; cursor: pointer;
         }
 
-        /* --- Profile Circle Bottom --- */
-        .profile-trigger {
-            margin: 40px auto;
-            width: 80px; height: 80px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            font-size: 10px; color: var(--sky-blue);
-            cursor: pointer;
+        /* --- Running Logo (Branded) --- */
+        .partner-container { padding: 10px 0 120px; }
+        .partner-logo {
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0.6; filter: brightness(0) invert(1); /* Logo Putih semua biar SaaS banget */
         }
+        .partner-logo img { max-width: 85px; max-height: 35px; object-fit: contain; }
 
-        /* --- Footer Copyright --- */
-        .footer-text {
-            text-align: center; font-size: 9px; opacity: 0.3; letter-spacing: 2px;
-            margin-bottom: 30px;
+        /* --- Navigation SaaS --- */
+        .bottom-nav {
+            position: fixed; bottom: 0; width: 100%; max-width: 480px;
+            background: var(--navy-deep); height: 75px; display: flex; 
+            justify-content: space-around; align-items: center;
+            border-radius: 25px 25px 0 0; z-index: 1000;
+            border-top: 1px solid rgba(255,193,7,0.1);
         }
+        .nav-item { text-align: center; color: rgba(255,255,255,0.3); flex: 1; }
+        .nav-item.active { color: var(--gold); }
+        .nav-item i { font-size: 20px; }
+        .nav-item span { font-size: 10px; font-weight: 700; margin-top: 5px; display: block; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header class="header">
-        <h1>MAHIKA <span>Trans</span></h1>
-        <p>Official Reservation Partner</p>
+        <div class="brand">
+            <div class="logo-circle"><i class="fas fa-crown"></i></div>
+            <div>
+                <b style="font-size: 18px;">MAHIKA <span style="color: var(--gold);">SaaS</span></b><br>
+                <small style="color: rgba(255,255,255,0.5); font-weight: 600;">Reservation Management</small>
+            </div>
+        </div>
+        <i class="fas fa-user-circle fa-2xl" style="color: rgba(255,255,255,0.2);"></i>
     </header>
 
-    <div class="promo-bar">
-        🔥 PROMO: BOOKING ONLINE DISKON 10%
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="banner-card">
+                    <small style="letter-spacing: 2px; font-weight: 800; color: var(--gold);">EXCLUSIVE ACCESS</small>
+                    <h3 style="margin: 8px 0;">Manajemen Tiket Jadi Mudah</h3>
+                    <p style="font-size: 11px; opacity: 0.7;">Optimalkan pengiriman data real-time dengan MOYA Engine.</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="banner-card">
+                    <small style="letter-spacing: 2px; font-weight: 800; color: var(--gold);">NEW UPDATE</small>
+                    <h3 style="margin: 8px 0;">Sinkronisasi Otomatis</h3>
+                    <p style="font-size: 11px; opacity: 0.7;">Update stok kursi Agra Mas dalam satu klik.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
 
-    <div class="search-box">
-        <input type="text" placeholder="Mau kemana hari ini?">
-        <button class="btn-cari">CARI</button>
+    <div class="section-title">Core Features</div>
+    <div class="profile-grid">
+        <div class="profile-item"><i class="fas fa-rocket"></i><span>Fast Response</span></div>
+        <div class="profile-item"><i class="fas fa-database"></i><span>Central Data</span></div>
+        <div class="profile-item"><i class="fas fa-fingerprint"></i><span>Secure Access</span></div>
+        <div class="profile-item"><i class="fas fa-chart-line"></i><span>Realtime Report</span></div>
     </div>
 
-    <div class="welcome-card">
-        <h2>Selamat Datang!</h2>
-        <p>Cari rute tujuanmu dan hubungi kami langsung via WhatsApp untuk reservasi.</p>
-    </div>
-
-    <div class="section-title">JADWAL TERPOPULER</div>
+    <div class="section-title">Active Routes</div>
     <div class="ticket-list">
         <div class="bus-card">
-            <div class="bus-name">Agra Mas</div>
-            <div style="font-size: 11px; opacity: 0.6;">Executive Class • Snack</div>
-            <div class="route-row">
-                <div class="dot"></div>
-                <span>JKT</span>
-                <div class="line"></div>
-                <span>WNG</span>
-                <div class="dot" style="background:var(--gold)"></div>
+            <div style="display: flex; justify-content: space-between;">
+                <p class="operator-name">Agra Mas</p>
+                <span class="bus-badge">VIP CLASS</span>
+            </div>
+            <div class="route-info">
+                <div style="text-align: left;"><b style="font-size: 18px;">JKT</b><br><small style="color: rgba(255,255,255,0.4);">Terminal JKT</small></div>
+                <div class="line"><i class="fas fa-shuttle-van"></i></div>
+                <div style="text-align: right;"><b style="font-size: 18px;">WNG</b><br><small style="color: rgba(255,255,255,0.4);">Terminal WNG</small></div>
             </div>
             <div class="price-row">
-                <div style="font-weight: 800;">Rp 240.000</div>
-                <button class="btn-booking" onclick="pesanWA('Agra Mas', 'JKT-WNG')">BOOKING</button>
+                <div><small style="color: rgba(255,255,255,0.4);">Net Price</small><br><b style="color: var(--white); font-size: 20px;">Rp 240.000</b></div>
+                <button class="btn-order" onclick="pesanWA('Agra Mas', 'JKT-WNG')">MANAGE</button>
             </div>
         </div>
     </div>
 
-    <div class="section-title" style="text-align:center">PARTNER KAMI</div>
-    <div class="swiper partnerSwiper" style="padding: 20px 0;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+    <div class="section-title" style="text-align: center;">Official Integration</div>
+    <div class="partner-container">
+        <div class="swiper partnerSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+                <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
+            </div>
         </div>
     </div>
 
-    <div class="profile-trigger">
-        <i class="fas fa-chevron-up"></i>
-        <span style="margin-top:5px">PROFILE</span>
-    </div>
-
-    <div class="footer-text">
-        © 2026 MAHIKA TRANS DONGKELAN
-    </div>
+    <nav class="bottom-nav">
+        <div class="nav-item active"><i class="fas fa-th-large"></i><span>DASHBOARD</span></div>
+        <div class="nav-item"><i class="fas fa-calendar-alt"></i><span>SCHEDULE</span></div>
+        <div class="nav-item"><i class="fas fa-cog"></i><span>SETTINGS</span></div>
+    </nav>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-    const partnerSwiper = new Swiper(".partnerSwiper", {
+    new Swiper(".mySwiper", {
+        loop: true, autoplay: { delay: 4000 },
+        pagination: { el: ".swiper-pagination", clickable: true },
+    });
+
+    new Swiper(".partnerSwiper", {
         slidesPerView: 4, spaceBetween: 15, loop: true, speed: 5000,
         autoplay: { delay: 0, disableOnInteraction: false },
     });
 
     function pesanWA(bus, rute) {
-        const text = `Halo Mahika Trans, saya mau booking tiket ${bus} rute ${rute}.`;
+        const text = `System Reservation: Mahika SaaS\nRequest: Booking ${bus}\nRoute: ${rute}`;
         window.open(`https://wa.me/628123456789?text=${encodeURIComponent(text)}`, '_blank');
     }
 </script>
 </body>
     </html>
-                
+    
