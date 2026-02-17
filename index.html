@@ -3,140 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahika SaaS - Premium Minimalist</title>
+    <title>Mahika Travel - iOS Style</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <style>
         :root {
-            --navy-deep: #002B4D;
-            --gold: #FFC107;
-            --sky-blue: #00B4EC;
-            --bg-dark: #001F35;
-            --card-glass: rgba(255, 255, 255, 0.1);
-            --white: #ffffff;
+            --ios-blue: #007AFF;
+            --ios-bg: #F2F2F7;
+            --white: #FFFFFF;
+            --gold: #AF8F2C; /* Gold yang lebih calm/muted */
+            --text-main: #1C1C1E;
+            --text-sub: #8E8E93;
+            --card-radius: 24px;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000;
+            background-color: #D1D1D6;
             margin: 0;
             display: flex;
             justify-content: center;
+            color: var(--text-main);
         }
 
         .container { 
             width: 100%;
             max-width: 480px; 
-            background: var(--bg-dark); 
+            background: var(--ios-bg); 
             min-height: 100vh; 
             position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            color: var(--white);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            overflow-x: hidden;
             padding-bottom: 100px;
         }
 
-        /* --- Header Minimalist with Fade Text --- */
+        /* --- Header: Calm Blue Skies Illustration --- */
         .hero-header {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(to bottom, rgba(0,43,77,0.4), var(--bg-dark)), 
-                        url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800');
-            background-size: cover;
-            background-position: center;
-            padding: 40px 20px;
+            height: 280px;
+            /* Menggunakan gradasi langit biru cerah ala ilustrasi iOS */
+            background: linear-gradient(180deg, #5AC8FA 0%, #FFFFFF 100%);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Elemen pemanis ilustrasi (awan/bukit abstrak) */
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 120%;
+            height: 100px;
+            background: var(--ios-bg);
+            border-radius: 50% 50% 0 0;
+            transform: scaleX(1.5);
         }
 
         .fade-text-container {
-            height: 60px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 80%;
         }
 
         .fade-text {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
-            line-height: 1.3;
-            color: var(--white);
+            line-height: 1.2;
+            color: var(--text-main);
             opacity: 0;
             position: absolute;
-            transition: opacity 1s ease-in-out;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
         }
 
         .fade-text.active {
             opacity: 1;
+            transform: translateY(0);
         }
 
-        .fade-text span {
-            color: var(--gold);
-        }
+        .fade-text span { color: var(--ios-blue); }
 
-        /* --- Services Bar (Nempel Header) --- */
+        /* --- Service Cards: iOS Style --- */
         .services-bar {
             display: flex;
             justify-content: space-between;
             padding: 0 20px;
-            margin-top: -35px;
-            gap: 10px;
+            margin-top: -40px;
+            gap: 12px;
+            position: relative;
+            z-index: 10;
         }
+        
         .service-card {
             flex: 1;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 16px;
-            padding: 12px 5px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 15px 5px;
             text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
         }
-        .service-card i { font-size: 18px; color: var(--gold); margin-bottom: 6px; display: block; }
-        .service-card span { font-size: 10px; font-weight: 700; color: var(--white); display: block; }
+        
+        .service-card:active { transform: scale(0.95); }
+        .service-card i { font-size: 20px; color: var(--ios-blue); margin-bottom: 8px; display: block; }
+        .service-card span { font-size: 11px; font-weight: 600; color: var(--text-main); display: block; }
 
-        /* --- UI Components --- */
-        .section-title { padding: 30px 20px 12px; font-size: 13px; font-weight: 800; color: var(--gold); letter-spacing: 1.5px; }
+        /* --- Sections --- */
+        .section-header {
+            padding: 30px 25px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-title { font-size: 17px; font-weight: 700; color: var(--text-main); }
+        .see-all { font-size: 13px; color: var(--ios-blue); font-weight: 600; text-decoration: none; }
+
+        /* --- Search Bar: Minimalist iOS --- */
         .search-container { padding: 0 20px; }
         .search-bar {
-            background: var(--card-glass);
-            border-radius: 12px;
-            padding: 4px;
+            background: #E3E3E8;
+            border-radius: 14px;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
+            gap: 10px;
         }
-        .search-bar input { background: none; border: none; color: white; width: 100%; outline: none; padding-left: 15px; font-size: 13px; }
-        .search-btn { background: var(--sky-blue); color: #000; border: none; padding: 10px 18px; border-radius: 10px; font-weight: 800; }
+        .search-bar input { background: none; border: none; width: 100%; outline: none; font-size: 15px; color: var(--text-main); }
+        .search-bar i { color: var(--text-sub); }
 
-        .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
+        /* --- Schedule Cards (2 Column) --- */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 20px;
+        }
+        
         .bus-item {
-            background: rgba(255,255,255,0.04);
-            border-radius: 18px;
-            padding: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
+            background: var(--white);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
         }
-        .bus-item b { font-size: 13px; color: var(--gold); display: block; margin-bottom: 4px; }
-        .price-tag { font-size: 12px; font-weight: 800; color: var(--sky-blue); background: rgba(0,180,236,0.1); padding: 4px 8px; border-radius: 6px; }
+        
+        .bus-item b { font-size: 15px; display: block; margin-bottom: 4px; }
+        .bus-item small { color: var(--text-sub); font-size: 11px; display: block; margin-bottom: 12px; }
+        .price-tag { 
+            font-size: 13px; 
+            font-weight: 700; 
+            color: var(--ios-blue); 
+            background: rgba(0,122,255,0.08);
+            padding: 6px 10px;
+            border-radius: 10px;
+        }
 
-        .testi-card { background: var(--navy-deep); padding: 18px; border-radius: 18px; font-size: 11px; margin: 0 20px; border: 1px solid rgba(255,193,7,0.2); }
+        /* --- Testimonial Card --- */
+        .testi-card {
+            background: var(--white);
+            margin: 0 20px;
+            padding: 20px;
+            border-radius: var(--card-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .testi-card p { font-size: 13px; line-height: 1.5; color: #3A3A3C; margin: 0; }
 
-        .partner-logo { opacity: 0.6; filter: brightness(0) invert(1); text-align: center; }
+        /* --- Partner Swiper --- */
+        .partner-logo { opacity: 0.4; filter: grayscale(1); padding: 10px; }
         .partner-logo img { max-width: 70px; }
 
+        /* --- Bottom Nav (iOS Blur Effect) --- */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 480px;
-            background: rgba(0,43,77,0.95); backdrop-filter: blur(15px);
-            height: 75px; display: flex; justify-content: space-around; align-items: center;
-            border-radius: 25px 25px 0 0;
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            height: 85px; display: flex; justify-content: space-around; align-items: flex-start;
+            padding-top: 15px;
+            border-top: 0.5px solid rgba(0,0,0,0.1);
+            z-index: 1000;
         }
-        .nav-item { text-align: center; color: rgba(255,255,255,0.3); font-size: 10px; font-weight: 700; }
-        .nav-item.active { color: var(--gold); }
-        .nav-item i { font-size: 18px; display: block; margin-bottom: 4px; }
+        .nav-item { text-align: center; color: var(--text-sub); font-size: 10px; font-weight: 500; }
+        .nav-item.active { color: var(--ios-blue); }
+        .nav-item i { font-size: 22px; display: block; margin-bottom: 4px; }
     </style>
 </head>
 <body>
@@ -145,9 +208,8 @@
     <div class="hero-header">
         <div class="fade-text-container">
             <div class="fade-text active">Solusi Transportasi<br><span>Terpadu & Cepat</span></div>
-            <div class="fade-text">Reservasi Tiket<br><span>Real-Time System</span></div>
-            <div class="fade-text">Partner Resmi<br><span>Agra Mas Group</span></div>
-            <div class="fade-text">Keamanan Transaksi<br><span>Terjamin 100%</span></div>
+            <div class="fade-text">Perjalanan Nyaman<br><span>Bersama Agra Mas</span></div>
+            <div class="fade-text">Navigasi Mudah<br><span>Dalam Genggaman</span></div>
         </div>
     </div>
 
@@ -158,58 +220,68 @@
         <div class="service-card"><i class="fas fa-plane"></i><span>Pesawat</span></div>
     </div>
 
-    <div class="section-title">CARI JADWAL</div>
+    <div class="section-header">
+        <span class="section-title">Cari Jadwal</span>
+    </div>
     <div class="search-container">
         <div class="search-bar">
-            <input type="text" placeholder="Masukkan kota tujuan...">
-            <button class="search-btn">CARI</button>
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Mau kemana hari ini?">
         </div>
     </div>
 
-    <div class="section-title">RUTE AKTIF</div>
+    <div class="section-header">
+        <span class="section-title">Rute Populer</span>
+        <a href="#" class="see-all">Lihat Semua</a>
+    </div>
     <div class="schedule-grid">
         <div class="bus-item">
             <b>Agra Mas</b>
-            <small style="display:block; margin-bottom:8px; opacity:0.5;">JKT - WNG</small>
+            <small>Jakarta - Solo</small>
             <span class="price-tag">Rp 240k</span>
         </div>
         <div class="bus-item">
             <b>Agra Mas</b>
-            <small style="display:block; margin-bottom:8px; opacity:0.5;">TGR - SOLO</small>
+            <small>Bogor - Wonogiri</small>
             <span class="price-tag">Rp 380k</span>
         </div>
     </div>
 
-    <div class="section-title">ULASAN KLIEN</div>
+    <div class="section-header">
+        <span class="section-title">Testimoni</span>
+    </div>
     <div class="testi-card">
-        "Sistem SaaS yang sangat responsif untuk manajemen armada Agra Mas."
-        <div style="margin-top: 10px; font-weight: 800; color: var(--sky-blue);">- Mahika Yasa</div>
+        <p>"Pengalaman booking yang sangat smooth. Tampilannya bersih dan mudah digunakan bahkan untuk orang tua."</p>
+        <div style="margin-top:12px; font-weight:700; font-size:12px; color:var(--ios-blue);">— Mahika Yasa</div>
     </div>
 
-    <div class="section-title" style="text-align: center;">OFFICIAL PARTNER</div>
-    <div class="swiper partnerSwiper" style="padding: 10px 20px;">
+    <div class="section-header" style="justify-content:center;">
+        <span class="section-title" style="font-size:12px; color:var(--text-sub); letter-spacing:1px;">OFFICIAL PARTNER</span>
+    </div>
+    <div class="swiper partnerSwiper" style="padding: 0 20px;">
         <div class="swiper-wrapper">
+            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
             <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
             <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
             <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
         </div>
     </div>
 
-    <div style="text-align: center; padding: 20px; opacity: 0.2; font-size: 9px; letter-spacing: 2px;">
-        MAHIKA TRANS © 2026
+    <div style="text-align: center; padding: 40px 0; opacity: 0.3; font-size: 11px;">
+        MAHIKA TRANS • 2026
     </div>
 
     <nav class="bottom-nav">
-        <div class="nav-item active"><i class="fas fa-home"></i>HOME</div>
-        <div class="nav-item"><i class="fas fa-receipt"></i>TICKETS</div>
-        <div class="nav-item"><i class="fas fa-chart-pie"></i>REPORT</div>
-        <div class="nav-item"><i class="fas fa-user-gear"></i>ADMIN</div>
+        <div class="nav-item active"><i class="fas fa-house-user"></i>Home</div>
+        <div class="nav-item"><i class="fas fa-ticket"></i>Tiket</div>
+        <div class="nav-item"><i class="fas fa-compass"></i>Eksplor</div>
+        <div class="nav-item"><i class="fas fa-user-circle"></i>Profil</div>
     </nav>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-    // Logic for Fade Text Animation
+    // Fade Text Logic
     const texts = document.querySelectorAll('.fade-text');
     let currentText = 0;
 
@@ -218,12 +290,14 @@
         currentText = (currentText + 1) % texts.length;
         texts[currentText].classList.add('active');
     }
+    setInterval(changeText, 3500);
 
-    setInterval(changeText, 3000); // Ganti teks setiap 3 detik
-
+    // Partner Slider
     new Swiper(".partnerSwiper", {
-        slidesPerView: 3, spaceBetween: 20, loop: true, speed: 4000,
-        autoplay: { delay: 0, disableOnInteraction: false },
+        slidesPerView: 3,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: { delay: 2000 },
     });
 </script>
 </body>
