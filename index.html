@@ -44,8 +44,9 @@
         .hero-header {
             width: 100%;
             height: 280px;
-            background: linear-gradient(180deg, rgba(0,51,102,0.4) 0%, var(--bg-system) 100%), 
-                        url('[attachment_0](attachment)');
+            /* Menggunakan gambar sesuai instruksi user */
+            background: linear-gradient(180deg, rgba(0,51,102,0.5) 0%, var(--bg-system) 100%), 
+                        url('bus-parked-side-road-sunset-modern-its-headlights-driving-343593898.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -71,7 +72,7 @@
             opacity: 0;
             position: absolute;
             transition: 0.8s ease-in-out;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .fade-text.active { opacity: 1; }
@@ -153,13 +154,9 @@
             color: var(--white);
             box-shadow: 0 10px 25px rgba(0,51,102,0.2);
         }
-        .testi-card p { font-size: 13px; line-height: 1.6; margin: 0; opacity: 0.9; }
+        .testi-card p { font-size: 13px; line-height: 1.6; margin: 0; opacity: 0.9; font-style: italic; }
 
-        /* --- Partner Swiper --- */
-        .partner-logo { opacity: 0.3; filter: grayscale(1); text-align: center; }
-        .partner-logo img { max-width: 75px; }
-
-        /* --- Bottom Nav iPhone Style --- */
+        /* --- Navigation --- */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 480px;
             background: rgba(255,255,255,0.9);
@@ -228,16 +225,7 @@
     <div class="section-header">TESTIMONI</div>
     <div class="testi-card">
         <p>"Sistemnya sangat intuitif dan cepat. Booking tiket jadi sangat praktis melalui Mahika Trans."</p>
-        <div style="margin-top:12px; font-weight:800; font-size:12px; color:var(--gold);">— Shohanur Rahman</div>
-    </div>
-
-    <div class="section-header" style="text-align:center; display:block; font-size:12px; opacity:0.5;">PARTNER INTEGRASI</div>
-    <div class="swiper partnerSwiper" style="padding: 10px 20px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-            <div class="swiper-slide partner-logo"><img src="Agra_Mas_Logo.png"></div>
-        </div>
+        <div style="margin-top:12px; font-weight:800; font-size:12px; color:var(--gold);">— Mahika Yasa</div>
     </div>
 
     <div style="text-align: center; padding: 40px 0; opacity: 0.3; font-size: 10px; letter-spacing: 2px;">
@@ -252,9 +240,8 @@
     </nav>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
-    // Fade Text Logic
+    // Fade Text Animation Logic
     const texts = document.querySelectorAll('.fade-text');
     let currentText = 0;
     function changeText() {
@@ -263,14 +250,6 @@
         texts[currentText].classList.add('active');
     }
     setInterval(changeText, 3000);
-
-    // Partner Slider
-    new Swiper(".partnerSwiper", {
-        slidesPerView: 3,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: { delay: 2500 },
-    });
 </script>
 </body>
 </html>
