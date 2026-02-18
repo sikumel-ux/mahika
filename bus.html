@@ -24,19 +24,15 @@
 
         .content-wrapper { position: relative; z-index: 10; padding-bottom: 50px; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-flat { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); } /* Tanpa Shadow */
         .glass-heavy { background: rgba(1, 11, 19, 0.98); backdrop-filter: blur(25px); border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* Running Text Luar Card */
-        .marquee-outer {
-            width: 100vw;
-            margin-left: -1.5rem; /* Offset padding body */
+        /* Running Text Styling */
+        .marquee-card {
             overflow: hidden;
             white-space: nowrap;
-            padding: 15px 0;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 40px;
+            padding: 12px 0;
+            border-radius: 20px;
         }
         .marquee-content {
             display: inline-block;
@@ -74,33 +70,33 @@
             <div class="info-fade text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400">🚍 Armada Hiace & Elf Executive Ready</div>
         </div>
 
-        <div id="welcome-card" class="glass p-8 rounded-[40px] mb-6 border-white/5 text-center">
+        <div id="welcome-card" class="glass p-8 rounded-[40px] mb-6 border-white/5 text-center shadow-xl">
             <h2 class="text-lg font-bold text-white mb-2">Selamat Datang!</h2>
             <p class="text-[11px] leading-relaxed text-white/50">Cari rute tujuanmu dan hubungi kami langsung via WhatsApp untuk reservasi.</p>
         </div>
 
-        <div class="marquee-outer">
-            <div class="marquee-content text-[10px] font-black tracking-widest text-sky-400/80 uppercase">
-                <i class="fa-solid fa-bus mx-3"></i> MURNI JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> AGRA MAS 
-                <i class="fa-solid fa-bus mx-3"></i> PUTRA REMAJA 
-                <i class="fa-solid fa-bus mx-3"></i> RAMAYANA 
-                <i class="fa-solid fa-bus mx-3"></i> HANDOYO 
-                <i class="fa-solid fa-bus mx-3"></i> SINAR JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> HARAPAN JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> ROSALIA INDAH 
-                <i class="fa-solid fa-bus mx-3"></i> GUNUNG HARTA 
-                <i class="fa-solid fa-bus mx-3"></i> PAHALA KENCANA
-                <i class="fa-solid fa-bus mx-3"></i> MURNI JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> AGRA MAS 
-                <i class="fa-solid fa-bus mx-3"></i> PUTRA REMAJA 
-                <i class="fa-solid fa-bus mx-3"></i> RAMAYANA 
-                <i class="fa-solid fa-bus mx-3"></i> HANDOYO 
-                <i class="fa-solid fa-bus mx-3"></i> SINAR JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> HARAPAN JAYA 
-                <i class="fa-solid fa-bus mx-3"></i> ROSALIA INDAH 
-                <i class="fa-solid fa-bus mx-3"></i> GUNUNG HARTA 
-                <i class="fa-solid fa-bus mx-3"></i> PAHALA KENCANA
+        <div id="marquee-section" class="glass-flat marquee-card mb-12">
+            <div class="marquee-content text-[9px] font-black tracking-[0.2em] text-sky-400/80 uppercase">
+                <i class="fa-solid fa-bus-simple mx-3"></i> MURNI JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> AGRA MAS 
+                <i class="fa-solid fa-bus-simple mx-3"></i> PUTRA REMAJA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> RAMAYANA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> HANDOYO 
+                <i class="fa-solid fa-bus-simple mx-3"></i> SINAR JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> HARAPAN JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> ROSALIA INDAH 
+                <i class="fa-solid fa-bus-simple mx-3"></i> GUNUNG HARTA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> PAHALA KENCANA
+                <i class="fa-solid fa-bus-simple mx-3"></i> MURNI JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> AGRA MAS 
+                <i class="fa-solid fa-bus-simple mx-3"></i> PUTRA REMAJA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> RAMAYANA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> HANDOYO 
+                <i class="fa-solid fa-bus-simple mx-3"></i> SINAR JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> HARAPAN JAYA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> ROSALIA INDAH 
+                <i class="fa-solid fa-bus-simple mx-3"></i> GUNUNG HARTA 
+                <i class="fa-solid fa-bus-simple mx-3"></i> PAHALA KENCANA
             </div>
         </div>
 
@@ -124,8 +120,8 @@
         <div class="sticky top-0 glass-heavy py-6 flex justify-center cursor-pointer z-50" onclick="toggleProfile()"><div class="w-16 h-1.5 bg-white/20 rounded-full"></div></div>
         <div class="px-8 pb-10 text-center">
             <h2 class="text-2xl font-extrabold text-sky-400 mb-4">MAHIKA TRANS</h2>
-            <p class="text-[11px] text-white/50 mb-8">Partner perjalanan terbaik Anda.</p>
-            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black rounded-2xl font-black uppercase text-[10px] tracking-widest inline-block shadow-lg">Chat Admin</a>
+            <p class="text-[11px] text-white/50 mb-8">Pemesanan tiket bus & travel mudah dan cepat.</p>
+            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black rounded-2xl font-black uppercase text-[10px] tracking-widest inline-block shadow-lg active:scale-95 transition-all">Chat WhatsApp Admin</a>
         </div>
     </div>
 
@@ -166,12 +162,12 @@
             const busList = document.getElementById('bus-list');
             const container = document.getElementById('result-container');
             const welcome = document.getElementById('welcome-card');
-            const marquee = document.querySelector('.marquee-outer');
+            const marquee = document.getElementById('marquee-section');
 
             welcome.classList.add('hidden');
-            marquee.classList.add('hidden'); // Sembunyikan marquee pas lagi search
+            marquee.classList.add('hidden'); 
             container.classList.remove('hidden');
-            busList.innerHTML = `<p class="text-center text-sky-400 animate-pulse text-[9px] uppercase font-black tracking-widest py-10">Mencari Data...</p>`;
+            busList.innerHTML = `<p class="text-center text-sky-400 animate-pulse text-[9px] uppercase font-black tracking-widest py-10">Mencari Rute...</p>`;
 
             try {
                 const q = collection(db, "direktori_rute");
@@ -184,17 +180,17 @@
                         html += `
                         <div class="glass p-6 rounded-[35px] flex justify-between items-center mb-4 border-l-4 border-sky-400 shadow-xl">
                             <div>
-                                <h3 class="font-black text-white uppercase">${b.armada}</h3>
+                                <h3 class="font-black text-white uppercase tracking-tight">${b.armada}</h3>
                                 <p class="text-[9px] font-bold text-sky-400 uppercase tracking-widest">${keyword.toUpperCase()}</p>
                             </div>
                             <div class="text-right">
-                                <p class="text-2xl font-black text-white">${b.jam}</p>
+                                <p class="text-2xl font-black text-white tracking-tighter">${b.jam}</p>
                                 <p class="text-[8px] font-bold text-sky-400">WIB</p>
                             </div>
                         </div>`;
                     }
                 });
-                busList.innerHTML = html || `<p class="text-center opacity-40 text-xs py-10 font-bold uppercase">Rute Tidak Ditemukan</p>`;
+                busList.innerHTML = html || `<div class="glass p-10 rounded-3xl text-center"><p class="text-xs opacity-30 uppercase font-bold">Rute tidak tersedia</p></div>`;
             } catch (e) { console.error(e); }
         }
     </script>
