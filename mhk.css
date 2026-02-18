@@ -26,20 +26,25 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Floating Search Positioning */
+/* Floating Search Fix */
 .search-floating-wrapper {
     position: absolute;
     bottom: -35px;
     left: 0;
     right: 0;
     z-index: 50;
+    pointer-events: none; /* Klik tembus lapisan transparan */
+}
+
+.search-card {
+    pointer-events: auto; /* Card search tetap bisa diklik */
 }
 
 .content-wrapper { 
     position: relative; 
     z-index: 10; 
     padding-bottom: 50px;
-    margin-top: 55px; /* Jarak untuk mengakomodasi floating search */
+    margin-top: 60px;
 }
 
 .glass { 
@@ -57,6 +62,7 @@ body {
     background: rgba(1, 11, 19, 0.98); 
     backdrop-filter: blur(25px); 
     border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    z-index: 1000;
 }
 
 /* Marquee */
@@ -64,21 +70,22 @@ body {
 .marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* Info Fade & Testi */
-.info-fade { display: none; }
-.info-fade.active { display: block; animation: fadeInOut 4s infinite; }
-.testi-item { display: none; }
-.testi-item.active { display: block; animation: fadeIn 0.8s forwards; }
-
+/* Section Title */
 .section-title {
     font-size: 10px; font-weight: 900; text-transform: uppercase; 
     letter-spacing: 0.15em; color: var(--mahika-blue); 
     margin: 1.5rem 0 0.75rem 0.25rem;
+    text-align: left;
 }
+
+/* Utils */
+.info-fade { display: none; }
+.info-fade.active { display: block; animation: fadeInOut 4s infinite; }
+.testi-item { display: none; }
+.testi-item.active { display: block; animation: fadeIn 0.8s forwards; }
 
 .gallery-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; scrollbar-width: none; }
 .gallery-container img { flex: 0 0 85%; scroll-snap-align: center; border-radius: 24px; height: 180px; object-fit: cover; }
 
 @keyframes fadeInOut { 0% { opacity: 0; transform: translateY(5px); } 15% { opacity: 1; transform: translateY(0); } 85% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-5px); } }
 @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-      
