@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahika Trans | Deep Blue Edition</title>
+    <title>Mahika Trans | Official</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
             <p class="text-[9px] font-bold tracking-[0.4em] uppercase text-yellow-400/80 mt-2">Official Reservation Partner</p>
             
             <div class="search-floating-wrapper px-6">
-                <div class="glass-search flex items-center p-2 rounded-[30px] shadow-2xl border border-white/10">
+                <div class="glass-search flex items-center p-2 rounded-[30px] shadow-2xl border border-white/20">
                     <div class="pl-4 text-yellow-400"><i class="fa-solid fa-magnifying-glass"></i></div>
                     <input type="text" id="search-input" placeholder="Mau kemana hari ini?" class="bg-transparent w-full p-4 outline-none text-sm font-semibold placeholder:text-white/30 text-white">
                     <button id="btnSearch" class="bg-yellow-400 text-[#053a6f] font-black py-4 px-8 rounded-[24px] text-[10px] uppercase shadow-lg active:scale-95 transition-all">CARI</button>
@@ -29,26 +29,13 @@
     </div>
 
     <main class="content-area w-full max-w-lg mx-auto px-6 relative z-10 pt-16">
-        <div class="h-8 flex justify-center items-center mb-8">
-            <div class="info-fade active text-[10px] font-bold uppercase tracking-[0.2em] text-yellow-400/70">🔥 Diskon 10% Khusus Booking Hari Ini</div>
-            <div class="info-fade text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">🚍 Armada Hiace & Elf Executive Ready</div>
-        </div>
-
-        <div class="glass-card py-4 rounded-2xl mb-8 overflow-hidden border border-white/5">
-            <div class="marquee-content text-[10px] font-black text-white/40 uppercase flex items-center">
-                <span>MURNI JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>AGRA MAS</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>SINAR JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>ROSALIA INDAH</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>HARAPAN JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>MURNI JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-                <span>AGRA MAS</span> <i class="fa-solid fa-bus-simple mx-6 text-yellow-400/30"></i>
-            </div>
-        </div>
-
-        <div id="welcome-card" class="glass-card p-8 rounded-[40px] text-center mb-12 border border-white/10">
+        <div id="welcome-card" class="glass-card p-8 rounded-[40px] text-center mb-8 border border-white/10 shadow-xl">
             <h2 class="text-lg font-bold mb-2 text-white">Selamat Datang!</h2>
-            <p class="text-[11px] text-white/50 leading-relaxed">Pesan tiket bus favoritmu dengan mudah dan cepat melalui layanan kami.</p>
+            <p class="text-[11px] text-white/50 leading-relaxed">Pesan tiket bus favoritmu dengan mudah melalui layanan reservasi resmi kami.</p>
+        </div>
+
+        <div id="result-container" class="hidden mb-12">
+            <div id="bus-list" class="space-y-4"></div>
         </div>
 
         <div class="flex justify-center pb-20">
@@ -60,7 +47,7 @@
     </main>
 
     <div id="company-profile" class="fixed inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)] panel-deep z-[2000] overflow-y-auto">
-        <div class="sticky top-0 py-6 flex justify-center z-50" onclick="toggleProfile()">
+        <div class="sticky top-0 py-6 flex justify-center z-50 bg-[#053a6f]" onclick="toggleProfile()">
             <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
         </div>
         
@@ -68,28 +55,39 @@
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-extrabold tracking-tighter"><span class="text-yellow-400">MAHIKA</span> <span class="text-white">Trans</span></h2>
                 <p class="text-[10px] text-white/40 uppercase tracking-[0.5em] mb-6">Reservation Partner</p>
-                
-                <div class="glass-card p-6 rounded-[30px] text-[11px] text-white/70 leading-relaxed text-justify mb-6">
-                    Mahika Trans adalah pusat reservasi tiket bus AKAP dan Travel terpercaya yang berbasis di Yogyakarta. Kami bekerja sama dengan operator bus ternama untuk memastikan perjalanan Anda nyaman dan aman.
-                </div>
+            </div>
 
-                <div class="grid grid-cols-2 gap-3 mb-8">
-                    <div class="glass-card p-4 rounded-2xl border border-white/5">
-                        <i class="fa-solid fa-clock text-yellow-400 mb-2"></i>
-                        <p class="text-[9px] uppercase text-white/40 font-bold">Operasional</p>
-                        <p class="text-[10px] font-bold">07:00 - 21:00</p>
-                    </div>
-                    <div class="glass-card p-4 rounded-2xl border border-white/5">
-                        <i class="fa-solid fa-shield-check text-yellow-400 mb-2"></i>
-                        <p class="text-[9px] uppercase text-white/40 font-bold">Layanan</p>
-                        <p class="text-[10px] font-bold">Resmi & Aman</p>
-                    </div>
+            <h3 class="section-title text-yellow-400">Layanan Kami</h3>
+            <div class="grid grid-cols-2 gap-3 mb-8">
+                <div class="glass-card p-4 rounded-2xl border border-white/5 text-center">
+                    <i class="fa-solid fa-ticket text-yellow-400 text-xl mb-2"></i>
+                    <p class="text-[10px] font-bold">Tiket Bus AKAP</p>
+                </div>
+                <div class="glass-card p-4 rounded-2xl border border-white/5 text-center">
+                    <i class="fa-solid fa-van-shuttle text-yellow-400 text-xl mb-2"></i>
+                    <p class="text-[10px] font-bold">Travel Executive</p>
                 </div>
             </div>
 
-            <h3 class="section-title text-yellow-400">Titik Penjemputan</h3>
+            <h3 class="section-title text-yellow-400">Armada Gallery</h3>
+            <div class="flex gap-3 overflow-x-auto pb-4 mb-8 snap-x">
+                <div class="min-w-[200px] h-32 glass-card rounded-2xl snap-center flex items-center justify-center border border-white/10">
+                    <i class="fa-solid fa-image text-white/20 text-3xl"></i>
+                </div>
+                <div class="min-w-[200px] h-32 glass-card rounded-2xl snap-center flex items-center justify-center border border-white/10">
+                    <i class="fa-solid fa-image text-white/20 text-3xl"></i>
+                </div>
+            </div>
+
+            <h3 class="section-title text-yellow-400">Testimoni</h3>
+            <div class="glass-card p-5 rounded-3xl border border-white/10 mb-8 italic text-[11px] text-white/70">
+                "Pelayanan ramah banget, booking tiket jadi gampang gak perlu antri ke terminal. Sukses terus Mahika Trans!"
+                <p class="mt-3 not-italic font-bold text-yellow-400 text-[10px] uppercase">- Andi, Yogyakarta</p>
+            </div>
+
+            <h3 class="section-title text-yellow-400">Lokasi Kami</h3>
             <div class="glass-card p-2 rounded-[30px] h-64 mb-8 overflow-hidden border border-white/10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.5367623190135!2d110.3541423!3d-7.8387926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a123456789%3A0xabcdef123456789!2sMahika%20Trans!5e0!3m2!1sid!2sid!4v1700000000000" class="w-full h-full rounded-[22px] grayscale invert opacity-70" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="http://googleusercontent.com/maps.google.com/9" class="w-full h-full rounded-[22px] grayscale invert opacity-70" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <a href="https://wa.me/6281211407667" class="w-full py-5 bg-yellow-400 text-[#053a6f] flex items-center justify-center gap-3 rounded-2xl font-black text-[11px] uppercase shadow-2xl active:scale-95 transition-all">
@@ -100,5 +98,5 @@
 
     <script type="module" src="mhk.js"></script>
 </body>
-                                          </html>
-    
+                    </html>
+                    
