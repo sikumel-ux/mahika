@@ -73,4 +73,3 @@ document.getElementById('btnSearch').onclick = async function() {
         busList.innerHTML = html || `<div class="glass p-10 rounded-3xl text-center"><p class="text-xs opacity-30 uppercase">Rute tidak ditemukan</p></div>`;
     } catch (e) { console.error(e); }
 };
-    
