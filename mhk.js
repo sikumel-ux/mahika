@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Firebase Configuration
 const firebaseConfig = { 
     apiKey: "AIzaSyAmTAWHcHpolaIHegLceyMqExVgzufJzaU", 
     authDomain: "mahika-trans.firebaseapp.com", 
@@ -12,19 +11,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Toggle Profile Panel
 window.toggleProfile = function() {
     const panel = document.getElementById('company-profile');
-    if(panel.classList.contains('translate-y-full')) {
-        panel.classList.replace('translate-y-full', 'translate-y-0');
-        document.body.style.overflow = 'hidden'; // Kunci scroll background
-    } else {
-        panel.classList.replace('translate-y-0', 'translate-y-full');
-        document.body.style.overflow = 'auto';
-    }
+    const isHidden = panel.classList.contains('translate-y-full');
+    panel.classList.toggle('translate-y-full', !isHidden);
+    panel.classList.toggle('translate-y-0', isHidden);
+    document.body.style.overflow = isHidden ? 'hidden' : 'auto';
 };
 
-// Search System
 document.getElementById('btnSearch').onclick = async function() {
     const keyword = document.getElementById('search-input').value.trim().toLowerCase();
     const busList = document.getElementById('bus-list');
@@ -32,10 +26,9 @@ document.getElementById('btnSearch').onclick = async function() {
     const welcomeCard = document.getElementById('welcome-card');
 
     if(!keyword) return;
-
     welcomeCard.classList.add('hidden');
     resultContainer.classList.remove('hidden');
-    busList.innerHTML = `<p class="text-center text-yellow-400 animate-pulse text-[10px] py-10 uppercase tracking-widest">Mencari Rute...</p>`;
+    busList.innerHTML = `<p class="text-center text-yellow-400 animate-pulse text-[10px] py-10 uppercase">Mencari Rute...</p>`;
 
     try {
         const snap = await getDocs(collection(db, "direktori_rute"));
@@ -44,7 +37,7 @@ document.getElementById('btnSearch').onclick = async function() {
             const data = doc.data();
             if(data.tujuan?.toLowerCase().includes(keyword)) {
                 html += `
-                <div class="glass-card p-6 rounded-[30px] flex justify-between items-center border-l-4 border-yellow-400 shadow-xl">
+                <div class="glass-card p-6 rounded-[30px] flex justify-between items-center border-l-4 border-yellow-400">
                     <div>
                         <h3 class="font-black text-white uppercase text-sm">${data.armada}</h3>
                         <p class="text-[9px] font-bold text-yellow-400 uppercase tracking-widest">${keyword}</p>
@@ -57,13 +50,9 @@ document.getElementById('btnSearch').onclick = async function() {
             }
         });
         busList.innerHTML = html || `<p class="text-center py-10 opacity-30 text-[10px]">RUTE TIDAK DITEMUKAN</p>`;
-    } catch (e) { 
-        console.error(e); 
-        busList.innerHTML = `<p class="text-center py-10 text-red-400 text-[10px]">ERROR LOADING DATA</p>`;
-    }
+    } catch (e) { console.error(e); }
 };
 
-// Auto Slide Info Promo
 let currentInfo = 0;
 const infoItems = document.querySelectorAll('.info-fade');
 setInterval(() => {
