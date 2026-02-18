@@ -62,3 +62,4 @@ setInterval(() => {
         infoItems[currentInfo].classList.add('active');
     }
 }, 4000);
+    
