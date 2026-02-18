@@ -3,252 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahika Trans - Premium Interface</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --navy-dark: #001A33;    
-            --navy-card: #002B4D;    
-            --ios-blue: #0A84FF;
-            --gold: #FFC107;
-            --white: #ffffff;
-            --text-gray: #A0AEC0;
-        }
-
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000D1A; margin: 0; display: flex; justify-content: center; overflow-x: hidden; }
-
-        .container { 
-            width: 100%; max-width: 480px; 
-            background: var(--navy-dark); min-height: 100vh; 
-            position: relative; color: var(--white); padding-bottom: 120px;
-        }
-
-        /* --- Header & Search --- */
-        .hero-header {
-            width: 100%; height: 180px;
-            background: linear-gradient(180deg, rgba(0,26,51,0.2) 0%, var(--navy-dark) 100%), 
-                        url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .search-wrapper { padding: 0 20px; margin-top: -30px; }
-        .search-box {
-            background: var(--navy-card); border-radius: 18px; padding: 15px 20px;
-            display: flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,0.1);
-        }
-        .search-box input { background: none; border: none; color: white; width: 100%; outline: none; font-size: 14px; }
-        .search-box i { color: var(--ios-blue); }
-
-        /* --- Service Cards --- */
-        .services-bar { display: flex; justify-content: space-between; padding: 25px 20px 10px; gap: 10px; }
-        .service-card { flex: 1; background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 12px 5px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-        .service-card i { font-size: 18px; color: var(--gold); margin-bottom: 5px; display: block; }
-        .service-card span { font-size: 10px; font-weight: 700; display: block; }
-
-        /* --- Info Jadwal (Sequence Animation - Ganti-gantian) --- */
-        .fade-grid { display: flex; gap: 10px; padding: 0 20px; }
-        .fade-card { 
-            flex: 1; height: 130px; border-radius: 20px; overflow: hidden; position: relative;
-            background-size: cover; background-position: center; border: 1px solid rgba(10, 132, 255, 0.3);
-        }
-        .card-left { background-image: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=400&q=80'); }
-        .card-right { background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80'); }
-        
-        .overlay-blue { position: absolute; inset: 0; background: rgba(0, 26, 51, 0.8); display: flex; align-items: center; justify-content: center; text-align: center; }
-        
-        /* Keyframe untuk muncul bergantian tanpa tabrakan */
-        .sequence-text { position: absolute; opacity: 0; animation: sequenceFade 9s infinite; width: 90%; }
-        .po-name { font-weight: 800; font-size: 14px; animation-delay: 0s; }
-        .po-route { font-weight: 700; font-size: 16px; color: var(--gold); animation-delay: 3s; }
-        .po-time { font-weight: 800; font-size: 18px; animation-delay: 6s; }
-
-        @keyframes sequenceFade {
-            0%, 2% { opacity: 0; transform: scale(0.9); }
-            10%, 28% { opacity: 1; transform: scale(1); }
-            33%, 100% { opacity: 0; transform: scale(1.1); }
-        }
-
-        /* --- Logo Slider Seamless --- */
-        .marquee { margin: 25px 0; overflow: hidden; white-space: nowrap; background: rgba(255,255,255,0.02); padding: 12px 0; }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-        .marquee-content span { font-size: 13px; font-weight: 800; margin: 0 30px; color: var(--text-gray); opacity: 0.4; }
-        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-        /* --- 4 Card Grid (Background Bus) --- */
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 20px; }
-        .grid-card { 
-            height: 160px; border-radius: 22px; position: relative; overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80');
-            background-size: cover; border: 1px solid rgba(255,255,255,0.1);
-        }
-        .grid-overlay { 
-            position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,26,51,0.4), rgba(10,132,255,0.85));
-            padding: 15px; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .grid-overlay b { font-size: 14px; }
-        .wa-btn { background: var(--white); color: var(--ios-blue); border: none; padding: 10px; border-radius: 12px; font-weight: 800; font-size: 10px; cursor: pointer; }
-
-        /* --- Testimonial Chat Bubble --- */
-        .testi-section { padding: 20px; position: relative; height: 180px; }
-        .testi-group { 
-            position: absolute; width: 100%; left: 0; padding: 0 20px; 
-            opacity: 0; animation: testiFade 10s infinite; 
-            display: flex; flex-direction: column; align-items: center;
-        }
-        .testi-group:nth-child(2) { animation-delay: 5s; }
-
-        .chat-bubble {
-            background: var(--navy-card); padding: 15px 20px; border-radius: 22px;
-            position: relative; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
-            font-size: 12px; line-height: 1.5; text-align: center; color: #E2E8F0;
-        }
-        .chat-bubble::after {
-            content: ''; position: absolute; bottom: -10px; left: 50%;
-            transform: translateX(-50%); border-left: 10px solid transparent;
-            border-right: 10px solid transparent; border-top: 10px solid var(--navy-card);
-        }
-
-        .user-meta { display: flex; flex-direction: column; align-items: center; }
-        .testi-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--ios-blue); margin-bottom: 8px; object-fit: cover; }
-        .testi-name { font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 1px; }
-
-        @keyframes testiFade {
-            0%, 5% { opacity: 0; transform: translateY(10px); }
-            15%, 45% { opacity: 1; transform: translateY(0); }
-            55%, 100% { opacity: 0; transform: translateY(-10px); }
-        }
-
-        .section-header { padding: 25px 25px 10px; font-size: 11px; font-weight: 800; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
-
-        /* --- Nav Bawah --- */
-        .bottom-nav {
-            position: fixed; bottom: 0; width: 100%; max-width: 480px;
-            background: rgba(0, 26, 51, 0.98); backdrop-filter: blur(20px);
-            height: 90px; display: flex; justify-content: space-around; padding-top: 20px;
-            border-radius: 30px 30px 0 0; z-index: 1000;
-        }
-    </style>
+    <title>Mahika Trans | Official Reservation Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mhk.css">
 </head>
-<body>
+<body class="bg-[#010b13] flex flex-col items-center min-h-screen overflow-x-hidden">
 
-<div class="container">
-    <div class="hero-header">
-        <h1 style="letter-spacing: 3px; font-size: 22px;">MAHIKA <span style="color:var(--gold)">TRANS</span></h1>
-    </div>
+    <header class="w-full max-w-lg relative z-[100]">
+        <div class="header-bg text-center pb-20">
+            <h1 class="text-4xl font-extrabold tracking-tighter title-brand pt-10">MAHIKA <span class="font-light text-white/80">Trans</span></h1>
+            <p class="text-[9px] font-bold tracking-[0.4em] uppercase text-sky-400 mt-2">Official Reservation Partner</p>
+            
+            <div class="search-floating-wrapper px-4">
+                <div class="glass search-card rounded-[30px] p-2 flex items-center border-white/20 shadow-2xl">
+                    <div class="pl-4 text-sky-400 opacity-40"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <input type="text" id="search-input" placeholder="Mau kemana hari ini?" class="bg-transparent w-full p-4 outline-none text-white text-sm font-semibold placeholder:text-white/10">
+                    <button id="btnSearch" class="bg-sky-400 text-black font-black py-4 px-8 rounded-[24px] text-[10px] uppercase transition-all active:scale-95 shadow-lg">CARI</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div class="search-wrapper">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cari rute bus...">
+    <main class="content-wrapper w-full max-w-lg px-6 relative z-10">
+        <div class="h-8 flex justify-center items-center mb-6">
+            <div class="info-fade active text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">🔥 Promo: Booking Online Diskon 10%</div>
+            <div class="info-fade text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400">🚍 Armada Executive Ready</div>
         </div>
-    </div>
 
-    <div class="services-bar">
-        <div class="service-card"><i class="fas fa-bus"></i><span>Bus</span></div>
-        <div class="service-card"><i class="fas fa-shuttle-van"></i><span>Travel</span></div>
-        <div class="service-card"><i class="fas fa-ship"></i><span>Kapal</span></div>
-        <div class="service-card"><i class="fas fa-plane"></i><span>Pesawat</span></div>
-    </div>
+        <div id="welcome-card" class="glass p-8 rounded-[40px] mb-6 border-white/5 text-center shadow-xl">
+            <h2 class="text-lg font-bold text-white mb-2">Selamat Datang!</h2>
+            <p class="text-[11px] leading-relaxed text-white/50">Cari rute tujuanmu dan hubungi kami langsung via WhatsApp untuk reservasi.</p>
+        </div>
 
-    <div class="section-header">INFO JADWAL</div>
-    <div class="fade-grid">
-        <div class="fade-card card-left">
-            <div class="overlay-blue">
-                <div class="sequence-text po-name">MURNI JAYA</div>
-                <div class="sequence-text po-route">BOGOR</div>
-                <div class="sequence-text po-time">17:30 WIB</div>
+        <div id="marquee-section" class="glass-flat marquee-card mb-12">
+            <div class="marquee-content text-[9px] font-black tracking-[0.2em] text-sky-400/80 uppercase">
+                <i class="fa-solid fa-bus-simple mx-3"></i> MURNI JAYA <i class="fa-solid fa-bus-simple mx-3"></i> AGRA MAS <i class="fa-solid fa-bus-simple mx-3"></i> SINAR JAYA <i class="fa-solid fa-bus-simple mx-3"></i> ROSALIA INDAH <i class="fa-solid fa-bus-simple mx-3"></i> HARAPAN JAYA
             </div>
         </div>
-        <div class="fade-card card-right">
-            <div class="overlay-blue">
-                <div class="sequence-text po-name">AGRA MAS</div>
-                <div class="sequence-text po-route">BOGOR</div>
-                <div class="sequence-text po-time">17:30 WIB</div>
-            </div>
-        </div>
-    </div>
 
-    <div class="marquee">
-        <div class="marquee-content">
-            <span>AGRA MAS</span> • <span>MURNI JAYA</span> • <span>SINAR JAYA</span> • <span>HARYANTO</span> • <span>HANDOYO</span> • <span>SANTOSO</span> • 
-            <span>AGRA MAS</span> • <span>MURNI JAYA</span> • <span>SINAR JAYA</span> • <span>HARYANTO</span> • <span>HANDOYO</span> • <span>SANTOSO</span> • 
+        <div id="result-container" class="hidden mb-12">
+            <div id="bus-list" class="space-y-4"></div>
         </div>
-    </div>
 
-    <div class="section-header">ARMADA TERSEDIA</div>
-    <div class="grid-container">
-        <div class="grid-card">
-            <div class="grid-overlay">
-                <b>AGRA MAS<br><small>Double Decker</small></b>
-                <button class="wa-btn"><i class="fab fa-whatsapp"></i> HUBUNGI</button>
-            </div>
+        <div class="flex flex-col items-center py-10">
+            <button onclick="toggleProfile()" class="w-16 h-16 glass rounded-full flex flex-col items-center justify-center animate-bounce shadow-2xl cursor-pointer">
+                <i class="fa-solid fa-chevron-up text-sky-400 mb-1"></i>
+                <span class="text-[7px] font-bold uppercase text-white/40">Profile</span>
+            </button>
         </div>
-        <div class="grid-card">
-            <div class="grid-overlay">
-                <b>MURNI JAYA<br><small>Executive Class</small></b>
-                <button class="wa-btn"><i class="fab fa-whatsapp"></i> HUBUNGI</button>
-            </div>
+    </main>
+
+    <div id="company-profile" class="fixed inset-x-0 bottom-0 translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)] glass-heavy overflow-y-auto z-[200]">
+        <div class="sticky top-0 glass-heavy py-6 flex justify-center cursor-pointer z-[210]" onclick="toggleProfile()">
+            <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
         </div>
-        <div class="grid-card">
-            <div class="grid-overlay">
-                <b>SINAR JAYA<br><small>Suite Class</small></b>
-                <button class="wa-btn"><i class="fab fa-whatsapp"></i> HUBUNGI</button>
+        
+        <div class="px-8 pb-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-sky-400">MAHIKA Trans</h2>
+                <p class="text-[10px] text-white/50 uppercase tracking-widest mb-4">Official Reservation Partner</p>
+                <div class="glass p-5 rounded-3xl text-[11px] text-white/60 leading-relaxed text-center">
+                    Kami adalah mitra resmi pemesanan tiket transportasi terpercaya di Yogyakarta.
+                </div>
             </div>
-        </div>
-        <div class="grid-card">
-            <div class="grid-overlay">
-                <b>HARYANTO<br><small>VVIP Class</small></b>
-                <button class="wa-btn"><i class="fab fa-whatsapp"></i> HUBUNGI</button>
+
+            <h3 class="section-title">Lokasi Kami</h3>
+            <div class="glass p-1.5 rounded-[32px] mb-8 h-[250px] overflow-hidden border-sky-400/20">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.6937402808!2d110.354!3d-7.822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDknMTkuMiJTIDExMMKwMjEnMTQuNCJF!5e0!3m2!1sid!2sid!4v1700000000000" class="w-full h-full rounded-[24px]" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-        </div>
-    </div>
-    <div class="section-header">LAYANAN LAINNYA</div>
-    <div class="fade-grid">
-        <div class="fade-card" style="background-image: url('https://images.unsplash.com/photo-1559291001-693fb9166cba?auto=format&fit=crop&w=400&q=80');">
-            <div class="overlay-blue" style="flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 15px;">
-                <b style="font-size: 14px; color: var(--gold);">TRAVEL REGULER</b>
-                <span style="font-size: 10px; font-weight: 700;">Door to Door Service</span>
-                <small style="font-size: 9px; opacity: 0.8;">Pagi • Siang • Malam</small>
-            </div>
-        </div>
-        <div class="fade-card" style="background-image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=400&q=80');">
-            <div class="overlay-blue" style="flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 15px;">
-                <b style="font-size: 14px; color: var(--gold);">TIKET KAPAL</b>
-                <span style="font-size: 10px; font-weight: 700;">Merak - Bakauheni</span>
-                <small style="font-size: 9px; opacity: 0.8;">Reguler & Executive</small>
-            </div>
-        </div>
-    </div>
-    <div class="section-header">TESTIMONI</div>
-    <div class="testi-section">
-        <div class="testi-group">
-            <div class="chat-bubble">"Tiket langsung dapet tanpa ribet. Adminnya fast respon banget!"</div>
-            <div class="user-meta">
-                <img src="https://i.pravatar.cc/100?u=12" class="testi-img">
-                <div class="testi-name">RAHMAN SHOAN</div>
-            </div>
-        </div>
-        <div class="testi-group">
-            <div class="chat-bubble">"Agen paling amanah di Dongkelan. Recomended buat pemudik!"</div>
-            <div class="user-meta">
-                <img src="https://i.pravatar.cc/100?u=25" class="testi-img">
-                <div class="testi-name">ANDI PRATAMA</div>
-            </div>
+
+            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black flex items-center justify-center gap-3 rounded-2xl font-black text-[11px] uppercase shadow-lg active:scale-95 transition-all">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi WhatsApp Admin
+            </a>
         </div>
     </div>
 
-    <nav class="bottom-nav">
-        <div class="nav-item" style="color:var(--gold);"><i class="fas fa-house" style="font-size:22px;"></i></div>
-        <div class="nav-item" style="color:#4A5568;"><i class="fas fa-ticket-alt" style="font-size:22px;"></i></div>
-        <div class="nav-item" style="color:#4A5568;"><i class="fas fa-history" style="font-size:22px;"></i></div>
-        <div class="nav-item" style="color:#4A5568;"><i class="fas fa-user" style="font-size:22px;"></i></div>
-    </nav>
-</div>
-
+    <script type="module" src="mhk.js"></script>
 </body>
-    </html>
-                    
+</html>
