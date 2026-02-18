@@ -1,23 +1,37 @@
-:root { --mahika-blue: #00d2ff; }
+:root { 
+    --royal-blue: #08519c; 
+}
+
+/* Background Royal Blue dengan gradasi halus */
+.bg-royal { 
+    background: radial-gradient(circle at 50% 0%, #0a64c2 0%, #08519c 100%); 
+}
 
 body { 
-    background-color: #010b13;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Header Tanpa Gradient (Solid + Border) */
-.header-bordered {
-    background: #011221;
+/* Header Manis dengan garis tepi putih transparan */
+.header-royal {
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 0 0 50px 50px;
-    border-bottom: 2px solid rgba(0, 210, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-.title-brand { color: var(--mahika-blue); text-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+.title-brand { 
+    color: white; 
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
 
-/* Floating Search logic */
+/* Glassmorphism yang lebih cerah untuk background biru */
+.glass-bright {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    pointer-events: auto;
+}
+
 .search-floating-wrapper {
     position: absolute;
     bottom: -32px;
@@ -26,35 +40,19 @@ body {
     pointer-events: none;
 }
 
-.search-card { 
-    pointer-events: auto;
-    background: rgba(1, 18, 33, 0.95);
-    backdrop-filter: blur(20px);
-}
-
-/* Glass effect */
-.glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-flat { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); }
-
-/* Profile Panel */
-.glass-heavy {
-    background: #010b13;
-    backdrop-filter: blur(25px);
+/* Profile Panel Royal Edition */
+.panel-royal {
+    background: linear-gradient(to bottom, #0a64c2, #08519c);
     height: 85vh;
-    border-top: 2px solid var(--mahika-blue);
+    border-top: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 40px 40px 0 0;
-    box-shadow: 0 -20px 50px rgba(0,0,0,0.9);
+    box-shadow: 0 -20px 60px rgba(0,0,0,0.4);
 }
 
 .section-title {
-    font-size: 10px; font-weight: 800; color: var(--mahika-blue);
-    text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px;
-    text-align: center;
+    font-size: 10px; font-weight: 800; color: white;
+    text-transform: uppercase; letter-spacing: 4px; margin-bottom: 15px;
+    text-align: center; opacity: 0.8;
 }
 
 /* Animations */
@@ -62,7 +60,7 @@ body {
     display: flex;
     white-space: nowrap;
     width: max-content;
-    animation: marquee 40s linear infinite;
+    animation: marquee 35s linear infinite;
 }
 
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -70,3 +68,4 @@ body {
 .info-fade { display: none; }
 .info-fade.active { display: block; animation: fadeIn 0.5s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    
