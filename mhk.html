@@ -19,7 +19,7 @@
             <p class="text-[9px] font-bold tracking-[0.4em] uppercase text-sky-400 mt-2">Official Reservation Partner</p>
             
             <div class="search-floating-wrapper px-4">
-                <div class="glass rounded-[30px] p-2 flex items-center border-white/20 shadow-2xl">
+                <div class="glass search-card rounded-[30px] p-2 flex items-center border-white/20 shadow-2xl">
                     <div class="pl-4 text-sky-400 opacity-40"><i class="fa-solid fa-magnifying-glass"></i></div>
                     <input type="text" id="search-input" placeholder="Mau kemana hari ini?" class="bg-transparent w-full p-4 outline-none text-white text-sm font-semibold tracking-wide placeholder:text-white/10">
                     <button id="btnSearch" class="bg-sky-400 text-black font-black py-4 px-8 rounded-[24px] text-[10px] uppercase transition-all active:scale-95 shadow-lg">CARI</button>
@@ -50,7 +50,7 @@
             <div id="bus-list" class="space-y-4"></div>
         </div>
 
-        <div class="flex flex-col items-center gap-4 mt-10">
+        <div class="flex flex-col items-center gap-4 mt-10 relative z-50">
             <button onclick="toggleProfile()" class="w-16 h-16 glass rounded-full flex flex-col items-center justify-center animate-bounce shadow-2xl">
                 <i class="fa-solid fa-chevron-up text-sky-400 mb-1"></i>
                 <span class="text-[7px] font-bold uppercase text-white/40 tracking-[0.2em]">Profile</span>
@@ -63,7 +63,9 @@
     </div>
 
     <div id="company-profile" class="fixed inset-x-0 bottom-0 transform translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)] glass-heavy overflow-y-auto">
-        <div class="sticky top-0 glass-heavy py-6 flex justify-center cursor-pointer z-50" onclick="toggleProfile()"><div class="w-16 h-1.5 bg-white/20 rounded-full"></div></div>
+        <div class="sticky top-0 glass-heavy py-6 flex justify-center cursor-pointer z-[1001]" onclick="toggleProfile()">
+            <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
+        </div>
         
         <div class="px-8 pb-10">
             <div class="text-center mb-8">
@@ -105,7 +107,7 @@
 
             <h3 class="section-title">Lokasi Kami</h3>
             <div class="glass p-1.5 rounded-[32px] mb-10 h-[220px] overflow-hidden border-sky-400/30 relative">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.5447141528644!2d110.35414577484483!3d-7.83790519218321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a123659223%3A0xc3f345c26b8d966d!2sMahika%20Trans!5e0!3m2!1sid!2sid!4v1700000000000" class="w-full h-full rounded-[24px] opacity-90" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15810.887019183416!2d110.3475895!3d-7.8192348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a02094285b%3A0xc682914104c8680!2sDongkelan!5e0!3m2!1sid!2sid!4v1700000000000" class="w-full h-full rounded-[24px] opacity-90" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
             <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black flex items-center justify-center gap-3 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-lg active:scale-95 transition-all">
@@ -116,4 +118,5 @@
 
     <script type="module" src="mhk.js"></script>
 </body>
-</html>
+                    </html>
+                    
