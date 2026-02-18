@@ -1,4 +1,3 @@
-// Toggle Profile
 window.toggleProfile = function() {
     const panel = document.getElementById('company-profile');
     if (!panel) return;
