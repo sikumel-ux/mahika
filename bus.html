@@ -12,13 +12,13 @@
         :root { --primary-dark: #010b13; --mahika-blue: #00d2ff; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: radial-gradient(circle at 50% -20%, #065084 0%, #010b13 100%); color: white; min-height: 100vh; overflow-x: hidden; }
         
-        /* Header Gradasi dengan Shadow di Curve */
+        /* Header Gradasi dengan Shadow Curve */
         .header-bg {
             background: linear-gradient(135deg, #065084 0%, #010b13 100%);
             border-radius: 0 0 50px 50px;
             padding: 60px 20px;
             margin: -48px -24px 30px -24px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -26,18 +26,21 @@
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .glass-heavy { background: rgba(1, 11, 19, 0.98); backdrop-filter: blur(25px); border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* Marquee / Running Text Animation */
-        .marquee-container {
+        /* Running Text Luar Card */
+        .marquee-outer {
+            width: 100vw;
+            margin-left: -1.5rem; /* Offset padding body */
             overflow: hidden;
             white-space: nowrap;
-            width: 100%;
-            margin-top: 15px;
-            padding: 10px 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 40px;
         }
         .marquee-content {
             display: inline-block;
-            animation: marquee 30s linear infinite;
+            animation: marquee 35s linear infinite;
         }
         @keyframes marquee {
             0% { transform: translateX(0); }
@@ -71,33 +74,33 @@
             <div class="info-fade text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400">🚍 Armada Hiace & Elf Executive Ready</div>
         </div>
 
-        <div id="welcome-card" class="glass p-8 rounded-[40px] mb-12 border-white/5 text-center overflow-hidden">
+        <div id="welcome-card" class="glass p-8 rounded-[40px] mb-6 border-white/5 text-center">
             <h2 class="text-lg font-bold text-white mb-2">Selamat Datang!</h2>
-            <p class="text-[11px] leading-relaxed text-white/50 mb-4">Cari rute tujuanmu dan hubungi kami langsung via WhatsApp untuk reservasi.</p>
-            
-            <div class="marquee-container">
-                <div class="marquee-content text-[10px] font-black tracking-widest text-sky-400/60 uppercase">
-                    <i class="fa-solid fa-bus mx-2"></i> MURNI JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> AGRA MAS 
-                    <i class="fa-solid fa-bus mx-2"></i> PUTRA REMAJA 
-                    <i class="fa-solid fa-bus mx-2"></i> RAMAYANA 
-                    <i class="fa-solid fa-bus mx-2"></i> HANDOYO 
-                    <i class="fa-solid fa-bus mx-2"></i> SINAR JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> HARAPAN JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> ROSALIA INDAH 
-                    <i class="fa-solid fa-bus mx-2"></i> GUNUNG HARTA 
-                    <i class="fa-solid fa-bus mx-2"></i> PAHALA KENCANA
-                    <i class="fa-solid fa-bus mx-2"></i> MURNI JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> AGRA MAS 
-                    <i class="fa-solid fa-bus mx-2"></i> PUTRA REMAJA 
-                    <i class="fa-solid fa-bus mx-2"></i> RAMAYANA 
-                    <i class="fa-solid fa-bus mx-2"></i> HANDOYO 
-                    <i class="fa-solid fa-bus mx-2"></i> SINAR JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> HARAPAN JAYA 
-                    <i class="fa-solid fa-bus mx-2"></i> ROSALIA INDAH 
-                    <i class="fa-solid fa-bus mx-2"></i> GUNUNG HARTA 
-                    <i class="fa-solid fa-bus mx-2"></i> PAHALA KENCANA
-                </div>
+            <p class="text-[11px] leading-relaxed text-white/50">Cari rute tujuanmu dan hubungi kami langsung via WhatsApp untuk reservasi.</p>
+        </div>
+
+        <div class="marquee-outer">
+            <div class="marquee-content text-[10px] font-black tracking-widest text-sky-400/80 uppercase">
+                <i class="fa-solid fa-bus mx-3"></i> MURNI JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> AGRA MAS 
+                <i class="fa-solid fa-bus mx-3"></i> PUTRA REMAJA 
+                <i class="fa-solid fa-bus mx-3"></i> RAMAYANA 
+                <i class="fa-solid fa-bus mx-3"></i> HANDOYO 
+                <i class="fa-solid fa-bus mx-3"></i> SINAR JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> HARAPAN JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> ROSALIA INDAH 
+                <i class="fa-solid fa-bus mx-3"></i> GUNUNG HARTA 
+                <i class="fa-solid fa-bus mx-3"></i> PAHALA KENCANA
+                <i class="fa-solid fa-bus mx-3"></i> MURNI JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> AGRA MAS 
+                <i class="fa-solid fa-bus mx-3"></i> PUTRA REMAJA 
+                <i class="fa-solid fa-bus mx-3"></i> RAMAYANA 
+                <i class="fa-solid fa-bus mx-3"></i> HANDOYO 
+                <i class="fa-solid fa-bus mx-3"></i> SINAR JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> HARAPAN JAYA 
+                <i class="fa-solid fa-bus mx-3"></i> ROSALIA INDAH 
+                <i class="fa-solid fa-bus mx-3"></i> GUNUNG HARTA 
+                <i class="fa-solid fa-bus mx-3"></i> PAHALA KENCANA
             </div>
         </div>
 
@@ -120,9 +123,9 @@
     <div id="company-profile" class="fixed inset-x-0 bottom-0 transform translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.23, 1, 0.32, 1)] glass-heavy overflow-y-auto">
         <div class="sticky top-0 glass-heavy py-6 flex justify-center cursor-pointer z-50" onclick="toggleProfile()"><div class="w-16 h-1.5 bg-white/20 rounded-full"></div></div>
         <div class="px-8 pb-10 text-center">
-             <h2 class="text-2xl font-bold text-sky-400 mb-4">MAHIKA TRANS</h2>
-             <p class="text-xs text-white/60 mb-8">Solusi reservasi tiket bus terpercaya.</p>
-             <a href="https://wa.me/6281211407667" class="w-full py-4 bg-sky-400 text-black rounded-2xl font-bold uppercase text-[10px] tracking-widest inline-block">Hubungi Admin</a>
+            <h2 class="text-2xl font-extrabold text-sky-400 mb-4">MAHIKA TRANS</h2>
+            <p class="text-[11px] text-white/50 mb-8">Partner perjalanan terbaik Anda.</p>
+            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black rounded-2xl font-black uppercase text-[10px] tracking-widest inline-block shadow-lg">Chat Admin</a>
         </div>
     </div>
 
@@ -150,22 +153,25 @@
         let currentInfo = 0;
         const infoItems = document.querySelectorAll('.info-fade');
         setInterval(() => {
-            infoItems[currentInfo].classList.remove('active');
-            currentInfo = (currentInfo + 1) % infoItems.length;
-            infoItems[currentInfo].classList.add('active');
+            if(infoItems.length){
+                infoItems[currentInfo].classList.remove('active');
+                currentInfo = (currentInfo + 1) % infoItems.length;
+                infoItems[currentInfo].classList.add('active');
+            }
         }, 4000);
 
-        // Logic Search (Tetap dipertahankan dari kode sebelumnya)
         document.getElementById('btnSearch').onclick = async function() {
             const keyword = document.getElementById('search-input').value.trim().toLowerCase();
             if(!keyword) return;
             const busList = document.getElementById('bus-list');
             const container = document.getElementById('result-container');
             const welcome = document.getElementById('welcome-card');
+            const marquee = document.querySelector('.marquee-outer');
 
             welcome.classList.add('hidden');
+            marquee.classList.add('hidden'); // Sembunyikan marquee pas lagi search
             container.classList.remove('hidden');
-            busList.innerHTML = `<p class="text-center text-sky-400 animate-pulse text-[10px] uppercase font-bold tracking-widest">Mencari Rute...</p>`;
+            busList.innerHTML = `<p class="text-center text-sky-400 animate-pulse text-[9px] uppercase font-black tracking-widest py-10">Mencari Data...</p>`;
 
             try {
                 const q = collection(db, "direktori_rute");
@@ -173,14 +179,22 @@
                 let html = "";
                 snap.forEach(doc => {
                     const b = doc.data();
-                    if(b.tujuan.toLowerCase().includes(keyword)) {
-                        html += `<div class="glass p-6 rounded-[30px] border-l-4 border-sky-400">
-                                    <h3 class="font-bold text-white uppercase">${b.armada}</h3>
-                                    <p class="text-[10px] text-sky-400">${b.jam}</p>
-                                 </div>`;
+                    const ruteStr = b.tujuan ? b.tujuan.toLowerCase() : "";
+                    if(ruteStr.includes(keyword)) {
+                        html += `
+                        <div class="glass p-6 rounded-[35px] flex justify-between items-center mb-4 border-l-4 border-sky-400 shadow-xl">
+                            <div>
+                                <h3 class="font-black text-white uppercase">${b.armada}</h3>
+                                <p class="text-[9px] font-bold text-sky-400 uppercase tracking-widest">${keyword.toUpperCase()}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-black text-white">${b.jam}</p>
+                                <p class="text-[8px] font-bold text-sky-400">WIB</p>
+                            </div>
+                        </div>`;
                     }
                 });
-                busList.innerHTML = html || `<p class="text-center opacity-40 text-xs">Rute tidak ditemukan</p>`;
+                busList.innerHTML = html || `<p class="text-center opacity-40 text-xs py-10 font-bold uppercase">Rute Tidak Ditemukan</p>`;
             } catch (e) { console.error(e); }
         }
     </script>
