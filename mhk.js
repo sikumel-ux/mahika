@@ -11,7 +11,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Search Functionality
+// Toggle Profile
+window.toggleProfile = function() {
+    const panel = document.getElementById('company-profile');
+    if(panel.classList.contains('translate-y-full')) {
+        panel.classList.replace('translate-y-full', 'translate-y-0');
+        document.body.style.overflow = 'hidden';
+    } else {
+        panel.classList.replace('translate-y-0', 'translate-y-full');
+        document.body.style.overflow = 'auto';
+    }
+};
+
+// Search System
 document.getElementById('btnSearch').onclick = async function() {
     const keyword = document.getElementById('search-input').value.trim().toLowerCase();
     const busList = document.getElementById('bus-list');
@@ -22,7 +34,7 @@ document.getElementById('btnSearch').onclick = async function() {
 
     welcomeCard.classList.add('hidden');
     resultContainer.classList.remove('hidden');
-    busList.innerHTML = `<p class="text-center text-yellow-400 animate-pulse text-[10px] py-10 uppercase tracking-widest">Mencari Rute...</p>`;
+    busList.innerHTML = `<p class="text-center text-yellow-400 animate-pulse text-[10px] py-10">MENCARI RUTE...</p>`;
 
     try {
         const snap = await getDocs(collection(db, "direktori_rute"));
@@ -31,7 +43,7 @@ document.getElementById('btnSearch').onclick = async function() {
             const data = doc.data();
             if(data.tujuan?.toLowerCase().includes(keyword)) {
                 html += `
-                <div class="glass-card p-6 rounded-[30px] flex justify-between items-center border-l-4 border-yellow-400 shadow-xl">
+                <div class="glass-card p-6 rounded-[30px] flex justify-between items-center border-l-4 border-yellow-400">
                     <div>
                         <h3 class="font-black text-white uppercase text-sm">${data.armada}</h3>
                         <p class="text-[9px] font-bold text-yellow-400 uppercase tracking-widest">${keyword}</p>
@@ -47,9 +59,13 @@ document.getElementById('btnSearch').onclick = async function() {
     } catch (e) { console.error(e); }
 };
 
-window.toggleProfile = function() {
-    const panel = document.getElementById('company-profile');
-    panel.classList.toggle('translate-y-full');
-    panel.classList.toggle('translate-y-0');
-    document.body.style.overflow = panel.classList.contains('translate-y-0') ? 'hidden' : 'auto';
-};
+// Auto Slide Promo
+let currentInfo = 0;
+const infoItems = document.querySelectorAll('.info-fade');
+setInterval(() => {
+    if(infoItems.length) {
+        infoItems[currentInfo].classList.remove('active');
+        currentInfo = (currentInfo + 1) % infoItems.length;
+        infoItems[currentInfo].classList.add('active');
+    }
+}, 4000);
