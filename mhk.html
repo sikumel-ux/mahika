@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mhk.css">
 </head>
-<body class="bg-deep-dark text-white min-h-screen overflow-x-hidden">
+<body class="bg-[#010b13] text-white min-h-screen overflow-x-hidden">
 
     <div class="header-container relative z-[100] w-full max-w-lg mx-auto">
-        <header class="header-bg text-center pt-12 pb-24 px-6">
+        <header class="header-bordered text-center pt-12 pb-24 px-6">
             <h1 class="text-4xl font-extrabold tracking-tighter title-brand">MAHIKA <span class="font-light text-white/80">Trans</span></h1>
             <p class="text-[9px] font-bold tracking-[0.4em] uppercase text-sky-400 mt-2">Official Reservation Partner</p>
             
@@ -32,15 +32,22 @@
             <div class="info-fade text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400">🚍 Armada Executive Ready</div>
         </div>
 
-        <div id="welcome-card" class="glass p-8 rounded-[40px] text-center mb-6">
-            <h2 class="text-lg font-bold mb-2">Selamat Datang!</h2>
-            <p class="text-[11px] text-white/50 leading-relaxed">Cari rute tujuanmu dan hubungi kami via WhatsApp.</p>
+        <div id="marquee-section" class="glass-flat py-4 rounded-2xl mb-8 overflow-hidden">
+            <div class="marquee-content text-[10px] font-black text-sky-400/80 uppercase flex items-center">
+                <span>MURNI JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>AGRA MAS</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>SINAR JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>ROSALIA INDAH</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>HARAPAN JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>PAHALA KENCANA</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>MURNI JAYA</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+                <span>AGRA MAS</span> <i class="fa-solid fa-bus-simple mx-6 text-white/20"></i>
+            </div>
         </div>
 
-        <div id="marquee-section" class="glass-flat py-3 px-1 rounded-2xl mb-12 overflow-hidden">
-            <div class="marquee-content text-[9px] font-bold text-sky-400/60 uppercase">
-                MURNI JAYA • AGRA MAS • SINAR JAYA • ROSALIA INDAH • HARAPAN JAYA • PAHALA KENCANA • 
-            </div>
+        <div id="welcome-card" class="glass p-8 rounded-[40px] text-center mb-12">
+            <h2 class="text-lg font-bold mb-2">Selamat Datang!</h2>
+            <p class="text-[11px] text-white/50 leading-relaxed">Cari rute tujuanmu dan hubungi kami via WhatsApp.</p>
         </div>
 
         <div class="flex justify-center pb-20">
@@ -56,12 +63,20 @@
             <div class="w-16 h-1.5 bg-white/20 rounded-full"></div>
         </div>
         <div class="px-8 pb-12">
-            <h2 class="text-3xl font-extrabold text-sky-400 text-center mb-6">MAHIKA Trans</h2>
-            <h3 class="text-[10px] font-black uppercase tracking-widest text-sky-400/50 mb-3">Lokasi Kami</h3>
-            <div class="glass p-2 rounded-[30px] h-64 mb-8 overflow-hidden">
-                <iframe src="http://googleusercontent.com/maps.google.com/6" class="w-full h-full rounded-[22px] grayscale invert opacity-80" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-sky-400">MAHIKA Trans</h2>
+                <p class="text-[10px] text-white/40 uppercase tracking-[0.4em] mb-6">Official Reservation</p>
+                <div class="glass p-6 rounded-[30px] text-[11px] text-white/60 leading-relaxed text-justify border-white/5">
+                    Kami adalah mitra resmi pemesanan tiket transportasi terpercaya di Yogyakarta. Menyediakan akses mudah ke berbagai armada bus AKAP dan travel terbaik untuk kenyamanan perjalanan Anda.
+                </div>
             </div>
-            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black flex items-center justify-center gap-3 rounded-2xl font-black text-[11px] uppercase shadow-xl">
+
+            <h3 class="section-title">Lokasi Kami</h3>
+            <div class="glass p-2 rounded-[30px] h-64 mb-8 overflow-hidden border-sky-400/20">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.5512248557!2d110.3582496!3d-7.8372132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a0209c1b3f%3A0x2f1f50625470d04!2sDongkelan!5e0!3m2!1sid!2sid!4v1700000000000" class="w-full h-full rounded-[22px] grayscale invert opacity-80" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <a href="https://wa.me/6281211407667" class="w-full py-5 bg-sky-400 text-black flex items-center justify-center gap-3 rounded-2xl font-black text-[11px] uppercase shadow-xl hover:bg-sky-300 transition-all">
                 <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi WhatsApp Admin
             </a>
         </div>
@@ -69,4 +84,5 @@
 
     <script type="module" src="mhk.js"></script>
 </body>
-</html>
+            </html>
+            
