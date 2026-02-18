@@ -1,0 +1,84 @@
+:root { 
+    --primary-dark: #010b13; 
+    --mahika-blue: #00d2ff; 
+}
+
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background: radial-gradient(circle at 50% -20%, #065084 0%, #010b13 100%); 
+    color: white; 
+    min-height: 100vh; 
+    overflow-x: hidden; 
+}
+
+.title-brand {
+    color: var(--mahika-blue); 
+    text-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+}
+
+.header-bg {
+    position: relative;
+    background: linear-gradient(135deg, #065084 0%, #010b13 100%);
+    border-radius: 0 0 50px 50px;
+    padding: 60px 20px 80px 20px;
+    margin: -48px -24px 0 -24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Floating Search Positioning */
+.search-floating-wrapper {
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.content-wrapper { 
+    position: relative; 
+    z-index: 10; 
+    padding-bottom: 50px;
+    margin-top: 55px; /* Jarak untuk mengakomodasi floating search */
+}
+
+.glass { 
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(15px); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+.glass-flat { 
+    background: rgba(255, 255, 255, 0.02); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+.glass-heavy { 
+    background: rgba(1, 11, 19, 0.98); 
+    backdrop-filter: blur(25px); 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* Marquee */
+.marquee-card { overflow: hidden; white-space: nowrap; padding: 12px 0; border-radius: 20px; }
+.marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* Info Fade & Testi */
+.info-fade { display: none; }
+.info-fade.active { display: block; animation: fadeInOut 4s infinite; }
+.testi-item { display: none; }
+.testi-item.active { display: block; animation: fadeIn 0.8s forwards; }
+
+.section-title {
+    font-size: 10px; font-weight: 900; text-transform: uppercase; 
+    letter-spacing: 0.15em; color: var(--mahika-blue); 
+    margin: 1.5rem 0 0.75rem 0.25rem;
+}
+
+.gallery-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; scrollbar-width: none; }
+.gallery-container img { flex: 0 0 85%; scroll-snap-align: center; border-radius: 24px; height: 180px; object-fit: cover; }
+
+@keyframes fadeInOut { 0% { opacity: 0; transform: translateY(5px); } 15% { opacity: 1; transform: translateY(0); } 85% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-5px); } }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+      
