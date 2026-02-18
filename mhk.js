@@ -12,36 +12,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// UI Handlers
+// DAFTARKAN FUNGSI KE WINDOW BIAR BISA DIPANGGIL ONCLICK
 window.toggleProfile = function() {
     const panel = document.getElementById('company-profile');
+    if (!panel) return;
     const isOpen = panel.style.transform === 'translateY(0px)';
     panel.style.transform = isOpen ? 'translateY(100%)' : 'translateY(0px)';
 };
 
-// Intervals for Slides
-function startIntervals() {
+// Start Animation Loops
+const startLoops = () => {
     let currentTesti = 0;
     const testitems = document.querySelectorAll('.testi-item');
-    setInterval(() => {
-        if(testitems.length) {
+    if(testitems.length) {
+        setInterval(() => {
             testitems[currentTesti].classList.remove('active');
             currentTesti = (currentTesti + 1) % testitems.length;
             testitems[currentTesti].classList.add('active');
-        }
-    }, 5000);
+        }, 5000);
+    }
 
     let currentInfo = 0;
     const infoItems = document.querySelectorAll('.info-fade');
-    setInterval(() => {
-        if(infoItems.length) {
+    if(infoItems.length) {
+        setInterval(() => {
             infoItems[currentInfo].classList.remove('active');
             currentInfo = (currentInfo + 1) % infoItems.length;
             infoItems[currentInfo].classList.add('active');
-        }
-    }, 4000);
-}
-startIntervals();
+        }, 4000);
+    }
+};
+startLoops();
 
 // Search Action
 document.getElementById('btnSearch').onclick = async function() {
@@ -68,7 +69,7 @@ document.getElementById('btnSearch').onclick = async function() {
             const ruteStr = b.tujuan ? b.tujuan.toLowerCase() : "";
             if(ruteStr.includes(keyword)) {
                 html += `
-                <div class="glass p-6 rounded-[35px] flex justify-between items-center mb-4 border-l-4 border-sky-400 shadow-xl">
+                <div class="glass p-6 rounded-[35px] flex justify-between items-center mb-4 border-l-4 border-sky-400 shadow-xl animate-fade-in">
                     <div>
                         <h3 class="font-black text-white uppercase tracking-tight">${b.armada}</h3>
                         <p class="text-[9px] font-bold text-sky-400 uppercase tracking-widest">${keyword.toUpperCase()}</p>
